@@ -22,8 +22,8 @@ local_css("style/style.css")
 
 # ---- LOAD ASSETS ----
 lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_fcfjwiyb.json")
-img_transpo = Image.open("images\TranspoLogo_1.jpg")
-img_lottie_animation = Image.open("images\playlist_1.jpg")
+img_transpo = Image.open("images/TranspoLogo_1.jpg")
+img_lottie_animation = Image.open("images/playlist_1.jpg")
 
 
 # ---- HEADER SECTION ----
