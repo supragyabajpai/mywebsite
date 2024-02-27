@@ -3,7 +3,7 @@ import streamlit as st
 from streamlit_lottie import st_lottie
 from PIL import Image
 
-st.set_page_config(page_title="Supragya Bajpai", layout="wide")
+st.set_page_config(page_title="Supragya Bajpai", layout="wide", page_icon=":rocket:")
 
 
 def load_lottieurl(url):
@@ -82,6 +82,7 @@ with st.container():
             """
         )
         st.markdown("[Read in detail...](https://github.com/supragyabajpai/Playlist_Recommendation)")
+        st.markdown("[Check out the app...](https://sb-playlist.onrender.com)")
 
 st.write("  ")
 st.write("  ")
