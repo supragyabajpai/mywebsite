@@ -1,29 +1,16 @@
 import requests
 import streamlit as st
-from streamlit_lottie import st_lottie
 from PIL import Image
+from streamlit_lottie import st_lottie
 
-st.set_page_config(page_title="Supragya Bajpai", layout="wide", page_icon=":rocket:")
-
-
-def load_lottieurl(url):
-    r = requests.get(url)
-    if r.status_code != 200:
-        return None
-    return r.json()
+st.set_page_config(page_title="Supragya Bajpai", layout="wide", page_icon=":file_cabinet:")
 
 
-def local_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-
-
-local_css("style/style.css")
-
-# ---- LOAD ASSETS ----
-lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_fcfjwiyb.json")
+# Load static assets
+lottie_coding = requests.get("https://assets5.lottiefiles.com/packages/lf20_fcfjwiyb.json").json()
 img_transpo = Image.open("images/TranspoLogo_1.jpg")
 img_lottie_animation = Image.open("images/playlist_1.jpg")
+img_lottie_animation2 = Image.open("images/ARWhiz_screenshot.jpg")
 
 
 # ---- HEADER SECTION ----
@@ -36,11 +23,11 @@ with st.container():
     st.write("[Read my blogs >](https://medium.com/@supragya.vajpai)")
 
 # ---- WHAT I DO ----
-with st.container():
+with st.expander(label="What I do"):
     st.write("---")
     left_column, right_column = st.columns(2)
     with left_column:
-        st.header("What I do")
+        #st.header("What I do")
         st.write("##")
         st.write(
             """
@@ -64,9 +51,32 @@ with st.container():
     st.write("---")
     st.header("My Projects")
     st.write("##")
-    image_column, text_column = st.columns((0.75, 2))
+    image_column, text_column = st.columns((1, 2))
     with image_column:
-        st.image(img_lottie_animation,width=250)
+        st.image(img_lottie_animation2, width=400)
+    with text_column:
+        st.subheader("AR_Whiz")
+        st.write(
+            """
+            Role: Developer
+
+            Description: After banks release their Annual Review documents, they often compare their strategies with those of other banks. Currently, if they use any LLM model to analyze, they might hallucinate. But by using a RAG model, we can make sure that the insights come directly from the documents, avoiding mistakes.
+
+            Also, there are many rules about compliance from organizations like the Bank for International Settlements (BIS) and the Office of the Superintendent of Financial Institutions (OFSI). By checking their current approach against these new rules quickly, banks can save a lot of time and effort to make sure they follow the rules.
+
+            Skills Developed:
+
+            Genrative AI, RAG modelling, Risk Analysis, Embedding
+            """
+        )
+        st.markdown("[Watch Video...](https://youtu.be/-hGAPAkxZ88)")
+        st.markdown("")
+
+with st.container():
+    st.write("---")
+    image_column, text_column = st.columns((0.6, 2))
+    with image_column:
+        st.image(img_lottie_animation, width=250)
     with text_column:
         st.subheader("Playlist Recommendation")
         st.write(
@@ -84,12 +94,9 @@ with st.container():
         st.markdown("[Read in detail...](https://github.com/supragyabajpai/Playlist_Recommendation)")
         st.markdown("[Check out the app...](https://sb-playlist.onrender.com)")
 
-st.write("  ")
-st.write("  ")
-st.write("  ")
-
 with st.container():
-    text_column,image_column = st.columns((2, 1))
+    st.write("---")
+    text_column, image_column = st.columns((2, 1))
     with text_column:
         st.subheader("TRANSPO")
         st.write(
@@ -103,13 +110,12 @@ with st.container():
         Market Research, Collaboration and Stakeholder Management, App Development, Team Management, Customer Feedback and Service Improvement, Strategic Expansions, Adaptability, Entrepreneurial Mindset, Communication Skills, Data Science and Analysis, Risk Management
         """
          )
+        
     st.markdown("[Read in detail......](https://github.com/supragyabajpai/TRANSPO)")
     with image_column:
         st.image(img_transpo)
-
-
-
-# --- More Projects ---#
-with st.container():
     st.write("---")
-    st.markdown("[Click here to check out my GitHub repository for more projects](https://github.com/supragyabajpai/Portfolio)")
+
+with st.expander(label="More Projects"):
+    st.write("---")
+    st.markdown("[GitHub repository](https://github.com/supragyabajpai/Portfolio)")
