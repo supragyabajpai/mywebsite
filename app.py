@@ -101,7 +101,7 @@ with st.container():
             """
         )
         st.markdown("[Read in detail...](https://github.com/supragyabajpai/Playlist_Recommendation)")
-        st.markdown("[Check out the app...](https://sb-playlist.onrender.com)")
+        st.markdown("[Check out the app...](https://playlist-recommendation.onrender.com/)")
 
 with st.container():
     st.write("---")
